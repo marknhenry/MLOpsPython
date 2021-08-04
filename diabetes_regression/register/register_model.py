@@ -125,15 +125,14 @@ def main():
         print(f"Tags present: {parent_tags}")
 
     if (model is not None):
-        dataset_id = parent_tags["dataset_id"]
+        # dataset_id = parent_tags["dataset_id"]
         if (build_id is None):
             register_aml_model(
                 model_file,
                 model_name,
                 model_tags,
                 exp,
-                run_id,
-                dataset_id)
+                run_id)
         elif (build_uri is None):
             register_aml_model(
                 model_file,
@@ -141,7 +140,7 @@ def main():
                 model_tags,
                 exp,
                 run_id,
-                dataset_id,
+                # dataset_id,
                 build_id)
         else:
             register_aml_model(
@@ -150,7 +149,7 @@ def main():
                 model_tags,
                 exp,
                 run_id,
-                dataset_id,
+                # dataset_id,
                 build_id,
                 build_uri)
     else:
@@ -175,7 +174,7 @@ def register_aml_model(
     model_tags,
     exp,
     run_id,
-    dataset_id,
+    # dataset_id,
     build_id: str = 'none',
     build_uri=None
 ):
@@ -195,8 +194,9 @@ def register_aml_model(
             model_name=model_name,
             model_path=model_path,
             tags=tagsValue,
+            # 'diabetes_ds in the line below needs to be parameterized
             datasets=[('training data',
-                       Dataset.get_by_id(exp.workspace, dataset_id))])
+                       Dataset.get_by_name(exp.workspace, 'diabetes_ds'))])
         os.chdir("..")
         print(
             "Model registered: {} \nModel Description: {} "
