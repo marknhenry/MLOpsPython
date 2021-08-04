@@ -1,0 +1,17 @@
+# To install docker
+
+ curl -fsSL https://get.docker.com -o get-docker.sh
+ DRY_RUN=1 sh ./get-docker.sh
+
+# To run without sudo
+
+sudo usermod -aG docker ${USER}
+
+# log out and log in again
+
+wget https://vstsagentpackage.azureedge.net/agent/2.189.0/vsts-agent-win-x64-2.189.0.zip
+mkdir agent
+cd myagent
+tar zxvf ~/Downloads/vsts-agent-linux-x64-2.189.0.tar.gz
+./config.sh
+./run.sh

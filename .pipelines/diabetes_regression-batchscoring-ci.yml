@@ -16,7 +16,7 @@ resources:
     image: mcr.microsoft.com/mlops/python:latest
   pipelines:
   - pipeline: model-train-ci
-    source: Model-Train-Register-CI # Name of the triggering pipeline
+    source: CI-Build-Train-Evaluate-Register # Name of the triggering pipeline
     trigger:
       branches:
         include:
@@ -37,7 +37,8 @@ variables:
 - group: devopsforai-aml-vg
 
 pool:
-  vmImage: ubuntu-latest
+  # vmImage: ubuntu-latest
+  name: 'Default'
 
 stages:
 - stage: 'Batch_Scoring_Pipeline_CI'
