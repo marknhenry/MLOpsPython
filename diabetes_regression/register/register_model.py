@@ -132,8 +132,7 @@ def main():
                 model_name,
                 model_tags,
                 exp,
-                run_id)
-                # dataset_id)
+                run_id) # dataset_id)
         elif (build_uri is None):
             register_aml_model(
                 model_file,
@@ -195,9 +194,8 @@ def register_aml_model(
             model_name=model_name,
             model_path=model_path,
             tags=tagsValue,
-            datasets=[('training data',
             # 'diabetes_ds in the line below needs to be parameterized
-                       Dataset.get_by_name(exp.workspace, 'diabetes_ds'))])
+            datasets=[('training data', Dataset.get_by_name(exp.workspace, 'diabetes_ds'))])
         os.chdir("..")
         print(
             "Model registered: {} \nModel Description: {} "
