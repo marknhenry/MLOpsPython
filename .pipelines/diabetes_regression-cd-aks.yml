@@ -22,6 +22,7 @@ resources:
       branches:
         include:
         - master
+        - feature/deploy-aks
 
 variables:
 - template: diabetes_regression-variables-template.yml
