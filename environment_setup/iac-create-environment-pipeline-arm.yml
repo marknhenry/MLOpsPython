@@ -15,8 +15,8 @@ pr:
       - environment_setup/arm-templates/*
 
 pool:
-  vmImage: "ubuntu-latest" # default Image to run pipeline
-  # name: "Default" # Own image on VM
+  # vmImage: "ubuntu-latest" # default Image to run pipeline
+  name: "Default" # Own image on VM
 
 variables:
   - group: devopsforai-aml-vg
